@@ -1,13 +1,16 @@
+#!/bin/bash
+
+# Create directory for Streamlit configuration if it doesn't exist
 mkdir -p ~/.streamlit/
 
-echo "/
-[general]\n\
-email=\"your-email@domain.com\"\n\
-" > ~/.streamlit/config.tom
+# Create Streamlit config file
+echo "[general]" > ~/.streamlit/config.toml
+echo "email = \"your-email@domain.com\"" >> ~/.streamlit/config.toml
 
-echo "/
-[server]\n\
-headless = true\n\
-enableCORS=false\n\
-port = $PORT\n\
-" > ~/st_app/config.toml
+# Create Streamlit server config file (if st_app directory exists)
+if [ -d "~/st_app" ]; then
+    echo "[server]" > ~/st_app/config.toml
+    echo "headless = true" >> ~/st_app/config.toml
+    echo "enableCORS = false" >> ~/st_app/config.toml
+    echo "port = $PORT" >> ~/st_app/config.toml
+fi
