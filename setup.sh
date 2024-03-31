@@ -4,7 +4,6 @@ mkdir -p ~/.streamlit/
 # Create Streamlit config file
 cat <<EOT > ~/.streamlit/config.toml
 [general]
-email = "your-email@domain.com"
 EOT
 
 # Create Streamlit server config file (if st_app directory exists)
