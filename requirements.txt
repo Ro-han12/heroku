@@ -1,11 +1,3 @@
-Flask
-scikit-learn
-tensorflow
-pandas 
-notebook
-numpy
-matplotlib
-
 streamlit
 google-generativeai
 python-dotenv
