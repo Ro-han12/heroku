@@ -12,8 +12,8 @@ def get_gemini_response(question):
     response=model.generate_content(question)
     return response.text 
 
-st.set_page_config(page_title='PDF Q&A')
-st.header("GEMINI LLM APPLICATION")
+st.set_page_config(page_title='GEMINI LLM APPLICATION')
+st.header("NADIA-AI")
 input=st.text_input("Input: ",key="input")
 submit=st.button("ask question")
 
