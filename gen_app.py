@@ -12,10 +12,12 @@ def get_gemini_response(question):
     response=model.generate_content(question)
     return response.text 
 
-st.set_page_config(page_title='GEMINI LLM APPLICATION')
-st.header("NADIA-AI")
+st.set_page_config(page_title='PDF Q&A')
+logo = "logo.jpeg"
+st.image(logo, width=200)
+st.header("Phoenix Lab's AI ASSISTANT: NADIA AI® ")
 input=st.text_input("Input: ",key="input")
-submit=st.button("ask question")
+submit=st.button("GO")
 
 if submit:
     response=get_gemini_response(input)
