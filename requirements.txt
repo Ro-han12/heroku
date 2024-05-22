@@ -1,7 +1,6 @@
 streamlit
 google-generativeai
 python-dotenv
-pdf2image
 gtts
 SpeechRecognition==3.8.1  # For speech recognition
 sounddevice==0.4.1  # For audio recording
