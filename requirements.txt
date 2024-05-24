@@ -1,7 +1,17 @@
-streamlit
+# streamlit
+# google-generativeai
+# python-dotenv
+# gtts
+# SpeechRecognition==3.8.1  # For speech recognition
+# sounddevice==0.4.1  # For audio recording
+# SoundFile==0.12.1 # For audio file handling
+# portaudio==19.7.0
+python-dotenv==0.19.0
+streamlit==1.7.0
+google==3.0.0  # Make sure to verify the latest version
 google-generativeai
+sounddevice==0.4.1
+soundfile==0.11.0
+SpeechRecognition==3.8.1
 python-dotenv
 gtts
-SpeechRecognition==3.8.1  # For speech recognition
-sounddevice==0.4.1  # For audio recording
-SoundFile==0.10.3.post1  # For audio file handling

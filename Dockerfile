@@ -1,4 +1,4 @@
-FROM python:3.9.9
+FROM python:3.9.19
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt

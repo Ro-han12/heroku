@@ -23,13 +23,14 @@
 #     response=get_gemini_response(input)
 #     st.subheader("THE RESPONSE IS")
 #     st.write(response)
-from dotenv import load_dotenv
-import streamlit as st 
-import os 
-import google.generativeai as genai 
+# from dotenv import load_dotenv
+import streamlit as st
+import os
+from google import generativeai as genai  # Updated import
 import sounddevice as sd
 import soundfile as sf
 import speech_recognition as sr
+from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
@@ -50,7 +51,7 @@ def recognize_speech():
     samplerate = 44100  # Sample rate
     channels = 1  # Number of audio channels
 
-    audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='int16')
+    audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')  # Updated dtype
     sd.wait()
 
     with sf.SoundFile('temp_audio.wav', mode='w', samplerate=samplerate, channels=channels) as file:
