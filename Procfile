@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run gen_app.py --server.port st.port
+web: sh setup.sh && streamlit run gen_app.py --server.port $PORT
