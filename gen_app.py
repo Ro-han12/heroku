@@ -44,15 +44,26 @@ def recognize_speech():
         return f"Could not request results from Google Speech Recognition service; {e}"
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®",layout='wide')
+st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠")
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
+
+# Ensure the logo path is correct
 logo_path = 'logo.jpeg'
 if os.path.exists(logo_path):
     st.image(logo_path, width=200)
 else:
     st.warning("Logo image not found!")
+
+# Get the port number from the user
+port = st.text_input("PORT", "8080")  # Default port is 8080
+
+# Check if the port is valid
+try:
+    port = int(port)
+except ValueError:
+    st.error("Please enter a valid port number.")
 
 # User input options
 input_option = st.radio("Choose input method:", ('Text', 'Voice'))
@@ -75,13 +86,3 @@ elif input_option == 'Voice':
         response = get_gemini_response(text_query)
         st.subheader("THE RESPONSE IS")
         st.write(response)
-
-# Health Check Endpoint
-@st.cache
-def health_check():
-    return "OK"
-
-if st.button("Check Health"):
-    status = health_check()
-    st.write("Health Check:", status)
-
