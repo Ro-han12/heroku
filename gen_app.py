@@ -44,7 +44,7 @@ def recognize_speech():
         return f"Could not request results from Google Speech Recognition service; {e}"
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠", layout='wide')
+st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®",layout='wide')
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
