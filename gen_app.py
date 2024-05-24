@@ -28,7 +28,7 @@ def recognize_speech():
     audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')
     sd.wait()
 
-    temp_audio_path = 'temp_audio.wav'
+    temp_audio_path = 'heroku/temp_audio.wav'  # Relative path for temp audio file
     with sf.SoundFile(temp_audio_path, mode='w', samplerate=samplerate, channels=channels) as file:
         file.write(audio_data)
 
@@ -48,22 +48,11 @@ st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_ico
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
-
-# Ensure the logo path is correct
-logo_path = 'logo.jpeg'
+logo_path = 'heroku/logo.jpeg'  # Relative path for logo image
 if os.path.exists(logo_path):
     st.image(logo_path, width=200)
 else:
     st.warning("Logo image not found!")
-
-# Get the port number from the user
-port = st.text_input("PORT", "8080")  # Default port is 8080
-
-# Check if the port is valid
-try:
-    port = int(port)
-except ValueError:
-    st.error("Please enter a valid port number.")
 
 # User input options
 input_option = st.radio("Choose input method:", ('Text', 'Voice'))
