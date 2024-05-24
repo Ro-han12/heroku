@@ -5,7 +5,6 @@ import sounddevice as sd
 import soundfile as sf
 import speech_recognition as sr
 from dotenv import load_dotenv
-from pathlib import Path
 
 # Load environment variables
 load_dotenv()
@@ -29,7 +28,7 @@ def recognize_speech():
     audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')
     sd.wait()
 
-    temp_audio_path = Path('temp_audio.wav')
+    temp_audio_path = 'temp_audio.wav'
     with sf.SoundFile(temp_audio_path, mode='w', samplerate=samplerate, channels=channels) as file:
         file.write(audio_data)
 
@@ -43,18 +42,19 @@ def recognize_speech():
         return "Sorry, I could not understand the audio."
     except sr.RequestError as e:
         return f"Could not request results from Google Speech Recognition service; {e}"
-    finally:
-        # Clean up the temporary audio file
-        if temp_audio_path.exists():
-            temp_audio_path.unlink()
 
 # Set Streamlit page configuration
 st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠")
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
-logo = "logo.jpeg"
-st.image(logo, width=200)
+
+# Ensure the logo path is correct
+logo_path = 'logo.jpeg'
+if os.path.exists(logo_path):
+    st.image(logo_path, width=200)
+else:
+    st.warning("Logo image not found!")
 
 # User input options
 input_option = st.radio("Choose input method:", ('Text', 'Voice'))
