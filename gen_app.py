@@ -1,4 +1,3 @@
-import streamlit as st
 import os
 from google import generativeai as genai
 import sounddevice as sd
@@ -47,7 +46,11 @@ def recognize_speech():
 PORT = int(os.environ.get("PORT", 5000))
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠", layout='wide')
+import streamlit as st
+
+# Function to disable favicon loading
+def disable_favicon():
+    st.set_page_config(backend='auto')
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
@@ -78,3 +81,6 @@ elif input_option == 'Voice':
         response = get_gemini_response(text_query)
         st.subheader("THE RESPONSE IS")
         st.write(response)
+
+# Call the function to disable favicon loading
+disable_favicon()
