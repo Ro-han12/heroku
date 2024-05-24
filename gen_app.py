@@ -28,7 +28,7 @@ def recognize_speech():
     audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')
     sd.wait()
 
-    temp_audio_path = '/Users/rohansridhar/Desktop/heroku/heroku/temp_audio.wav'
+    temp_audio_path = 'temp_audio.wav'
     with sf.SoundFile(temp_audio_path, mode='w', samplerate=samplerate, channels=channels) as file:
         file.write(audio_data)
 
@@ -44,7 +44,6 @@ def recognize_speech():
         return f"Could not request results from Google Speech Recognition service; {e}"
 
 # Set Streamlit page configuration
-port = st.port("PORT")
 st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠", layout='wide')
 
 # Display header and logo
@@ -76,3 +75,13 @@ elif input_option == 'Voice':
         response = get_gemini_response(text_query)
         st.subheader("THE RESPONSE IS")
         st.write(response)
+
+# Health Check Endpoint
+@st.cache
+def health_check():
+    return "OK"
+
+if st.button("Check Health"):
+    status = health_check()
+    st.write("Health Check:", status)
+
