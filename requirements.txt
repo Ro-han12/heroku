@@ -15,3 +15,5 @@ soundfile==0.11.0
 SpeechRecognition==3.8.1
 gtts
 python-dotenv
+altair==4.1.0
+vega_datasets==0.9.0
