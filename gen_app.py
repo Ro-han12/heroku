@@ -28,7 +28,7 @@ def recognize_speech():
     audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')
     sd.wait()
 
-    temp_audio_path = 'temp_audio.wav'
+    temp_audio_path = '/Users/rohansridhar/Desktop/heroku/heroku/temp_audio.wav'
     with sf.SoundFile(temp_audio_path, mode='w', samplerate=samplerate, channels=channels) as file:
         file.write(audio_data)
 
@@ -50,7 +50,7 @@ st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_ico
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
 
 # Ensure the logo path is correct
-logo_path = 'logo.jpeg'
+logo_path = '/Users/rohansridhar/Desktop/heroku/heroku/logo.jpeg'
 if os.path.exists(logo_path):
     st.image(logo_path, width=200)
 else:
