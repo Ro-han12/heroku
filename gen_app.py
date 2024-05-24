@@ -1,32 +1,6 @@
-# from dotenv import load_dotenv
-# load_dotenv()
-
-# import streamlit as st 
-# import os 
-# import google.generativeai as genai 
-
-# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-
-# model=genai.GenerativeModel("gemini-pro")
-# def get_gemini_response(question):
-#     response=model.generate_content(question)
-#     return response.text 
-
-# st.set_page_config(page_title='PDF Q&A')
-# logo = "logo.jpeg"
-# st.image(logo, width=200)
-# st.header("Phoenix Lab's AI ASSISTANT: NADIA AI® ")
-# input=st.text_input("Input: ",key="input")
-# submit=st.button("GO")
-
-# if submit:
-#     response=get_gemini_response(input)
-#     st.subheader("THE RESPONSE IS")
-#     st.write(response)
-# from dotenv import load_dotenv
 import streamlit as st
 import os
-from google import generativeai as genai  # Updated import
+from google import generativeai as genai
 import sounddevice as sd
 import soundfile as sf
 import speech_recognition as sr
@@ -51,7 +25,7 @@ def recognize_speech():
     samplerate = 44100  # Sample rate
     channels = 1  # Number of audio channels
 
-    audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')  # Updated dtype
+    audio_data = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=channels, dtype='float32')
     sd.wait()
 
     with sf.SoundFile('temp_audio.wav', mode='w', samplerate=samplerate, channels=channels) as file:
@@ -69,16 +43,18 @@ def recognize_speech():
         return f"Could not request results from Google Speech Recognition service; {e}"
 
 # Set Streamlit page configuration
-st.set_page_config(page_title='PDF Q&A')
+st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠")
+
+# Display header and logo
+st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
 logo = "logo.jpeg"
 st.image(logo, width=200)
-st.header("Phoenix Lab's AI ASSISTANT: NADIA AI® ")
 
 # User input options
 input_option = st.radio("Choose input method:", ('Text', 'Voice'))
 
 if input_option == 'Text':
-    input_text = st.text_input("Input: ", key="input")
+    input_text = st.text_input("Input: ")
     submit_button = st.button("GO")
     if submit_button:
         response = get_gemini_response(input_text)
