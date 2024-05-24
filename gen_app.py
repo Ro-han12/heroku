@@ -43,8 +43,11 @@ def recognize_speech():
     except sr.RequestError as e:
         return f"Could not request results from Google Speech Recognition service; {e}"
 
+# Get the port from the environment variable or use a default port
+PORT = int(os.environ.get("PORT", 5000))
+
 # Set Streamlit page configuration
-st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠")
+st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠", layout='wide')
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
