@@ -44,13 +44,12 @@ def recognize_speech():
         return f"Could not request results from Google Speech Recognition service; {e}"
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠")
+port = st.port("PORT")
+st.set_page_config(page_title="Phoenix Lab's AI ASSISTANT: NADIA AI®", page_icon="🧠", layout='wide')
 
 # Display header and logo
 st.title("Phoenix Lab's AI ASSISTANT: NADIA AI®")
-
-# Ensure the logo path is correct
-logo_path = '/Users/rohansridhar/Desktop/heroku/heroku/logo.jpeg'
+logo_path = 'logo.jpeg'
 if os.path.exists(logo_path):
     st.image(logo_path, width=200)
 else:
