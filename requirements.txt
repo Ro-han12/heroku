@@ -18,4 +18,5 @@ soundfile
 SpeechRecognition
 google-generativeai
 python-dotenv
-pyaudio
+streamlit_option_menu
+firebase_admin
