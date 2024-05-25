@@ -1,6 +1,8 @@
 streamlit
-google-generativeai
+google-generativeai==0.4.0
 sounddevice
 soundfile
 SpeechRecognition
 python-dotenv
+pyaudio
+

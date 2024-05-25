@@ -5,6 +5,7 @@ import sounddevice as sd
 import soundfile as sf
 import speech_recognition as sr
 from dotenv import load_dotenv
+import pyaudio
 
 # Load environment variables
 load_dotenv()
