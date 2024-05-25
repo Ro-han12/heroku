@@ -3,6 +3,9 @@ click
 gtts
 python-dotenv
 SpeechRecognition
+flask==2.0.2
+requests==2.25.1
+gunicorn==20.1.0
 sounddevice
 soundfile
 streamlit
@@ -20,4 +23,3 @@ google-generativeai
 python-dotenv
 streamlit_option_menu
 firebase_admin
-gunicorn==20.1.0
