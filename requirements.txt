@@ -4,5 +4,3 @@ sounddevice
 soundfile
 SpeechRecognition
 python-dotenv
-sounddevice 
-soundfile
