@@ -1,4 +1,5 @@
 import os
+import logging
 from google import generativeai as genai
 import sounddevice as sd
 import soundfile as sf
@@ -6,16 +7,23 @@ import speech_recognition as sr
 from dotenv import load_dotenv
 import streamlit as st
 
+# Set up logging
+logging.basicConfig(level=logging.DEBUG)
+
 # Load environment variables
 load_dotenv()
+logging.info("Loaded environment variables.")
 
 # Configure the Generative AI model
 try:
     api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise ValueError("GOOGLE_API_KEY is not set in the environment variables.")
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel("gemini-pro")
+    logging.info("Configured Generative AI model.")
 except Exception as e:
-    st.error(f"Error configuring Generative AI model: {e}")
+    logging.error(f"Error configuring Generative AI model: {e}")
 
 # Function to generate response from the Generative AI model
 def get_gemini_response(question):
@@ -24,6 +32,7 @@ def get_gemini_response(question):
         return response.text 
     except Exception as e:
         st.error(f"Error generating response: {e}")
+        logging.error(f"Error generating response: {e}")
         return "Error generating response"
 
 # Function to recognize speech from audio
@@ -53,6 +62,7 @@ def recognize_speech():
             return f"Could not request results from Google Speech Recognition service; {e}"
     except Exception as e:
         st.error(f"Error recording audio: {e}")
+        logging.error(f"Error recording audio: {e}")
         return "Error recording audio"
 
 # Set Streamlit page configuration
