@@ -4,5 +4,5 @@ sounddevice
 soundfile
 SpeechRecognition
 python-dotenv
-pipwin
-pyaudio
+sounddevice 
+soundfile
