@@ -1,8 +1,8 @@
-streamlit==1.13.0
+streamlit
 google-generativeai
-sounddevice==0.4.4
-soundfile==0.10.3.post1
-SpeechRecognition==3.8.1
-python-dotenv==0.21.0
-pyaudio==0.2.11
+sounddevice
+soundfile
+SpeechRecognition
+python-dotenv
+pyaudio
 libsndfile
