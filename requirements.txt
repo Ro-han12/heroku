@@ -6,3 +6,4 @@ wave
 pydub
 streamlit-webrtc
 sounddevice
+pyaudio --user
