@@ -5,3 +5,4 @@ python-dotenv
 wave
 pydub
 streamlit-webrtc
+sounddevice
