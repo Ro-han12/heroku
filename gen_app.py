@@ -84,4 +84,3 @@ def health_check():
 if st.button("Check Health"):
     status = health_check()
     st.write("Health Check:", status)
-
