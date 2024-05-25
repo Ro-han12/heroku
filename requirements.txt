@@ -18,3 +18,4 @@ soundfile
 SpeechRecognition
 google-generativeai
 python-dotenv
+pyaudio
